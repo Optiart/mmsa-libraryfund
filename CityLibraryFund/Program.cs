@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CityLibraryFund
@@ -14,10 +11,11 @@ namespace CityLibraryFund
         [STAThread]
         static void Main()
         {
+            CompositionRoot.Wire(new ApplicationModule());
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(CompositionRoot.Resolve<MainForm>());
         }
     }
 }
