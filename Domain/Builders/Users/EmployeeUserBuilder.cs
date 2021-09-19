@@ -3,20 +3,20 @@ using System;
 
 namespace Domain.Builders.Users
 {
-    public class EmployeeUserBuilder : UserBuilder<Employee>
+    public class EmployeeUserBuilder : UserBuilder<Employee, EmployeeUserBuilder>
     {
-        public UserBuilder<Employee> WithEmployeeInfo(string position, DateTime startDate, DateTime? endDate = default)
+        public EmployeeUserBuilder WithEmployeeInfo(string position, DateTime startDate, DateTime? endDate = default)
         {
-            User.Position = position ?? throw new ArgumentNullException(nameof(position));
+            Person.Position = position ?? throw new ArgumentNullException(nameof(position));
 
             if (startDate == default)
             {
                 throw new ArgumentException(null, nameof(startDate));
             }
 
-            User.StartDate = startDate;
-            User.EndDate = endDate;
-            return this;
+            Person.StartDate = startDate;
+            Person.EndDate = endDate;
+            return BuilderInstance;
         }
     }
 }

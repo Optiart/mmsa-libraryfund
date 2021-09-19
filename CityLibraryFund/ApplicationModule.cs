@@ -1,5 +1,5 @@
-﻿using CityLibraryFund.Common;
-using CityLibraryFund.Handlers;
+﻿using CityLibraryFund.Filters;
+using CityLibraryFund.MenuHandlers;
 using Data;
 using Domain;
 using Domain.Builders;
@@ -15,7 +15,8 @@ namespace CityLibraryFund
         {
             // Repository
             Bind<LibraryFundDbContext>().ToSelf().InSingletonScope();
-            Bind<ILibraryRepository>().To<LibraryRepository>().InSingletonScope();
+            Bind<ILibraryRepository>().To<LibrarySqlRepository>().InSingletonScope();
+            Bind<IFundRepository>().To<FundSqlRepository>().InSingletonScope();
             Bind<IRepository<Data.Dto.Librarian, uint>>().To<LibrarianRepository>().InSingletonScope();
 
             // Builders
@@ -25,20 +26,8 @@ namespace CityLibraryFund
             // Managers
             Bind<LibraryManager>().ToSelf().InSingletonScope();
 
-            // Menu handlers
-            Bind<LibraryMenuHandler>().ToSelf().InSingletonScope();
-            Bind<FundMenuHandler>().ToSelf().InSingletonScope();
-            Bind<MenuSelector>().ToMethod(context =>
-            {
-                var libraryMenuHandler = context.Kernel.Get<LibraryMenuHandler>();
-                var fundMenuHandler = context.Kernel.Get<FundMenuHandler>();
-
-                var menuSelector = new MenuSelector();
-                menuSelector.MenuSelectionChanged += libraryMenuHandler.HandleMenuSelectionChanged;
-                menuSelector.MenuSelectionChanged += fundMenuHandler.HandleMenuSelectionChanged;
-
-                return menuSelector;
-            }).InSingletonScope();
+            // State
+            Bind<FilterState>().ToSelf().InSingletonScope();
         }
     }
 }

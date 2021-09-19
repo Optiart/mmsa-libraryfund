@@ -5,70 +5,32 @@ using System;
 
 namespace Domain.Builders.Users
 {
-    public abstract class UserBuilder<T> where T : User, new()
+    public abstract class UserBuilder<TUser, TBuilder> : PersonBuilder<TUser, TBuilder>
+        where TUser : User, new()
+        where TBuilder: UserBuilder<TUser,TBuilder>
     {
-        protected readonly T User;
-
-        public UserBuilder()
+        public TBuilder WithCategory(UserCategoryEnum category)
         {
-            User = new T();
+            Person.Category = category;
+            return BuilderInstance;
         }
 
-        public UserBuilder<T> WithBasicInfo(uint id, string firstName, string lastName, DateTime birthDate)
+        public TBuilder WithPhone(string number, string countryCode)
         {
-            User.Id = id;
-            User.FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
-            User.LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
-
-            if (birthDate == default)
-            {
-                throw new ArgumentException("Invalid birth date", nameof(birthDate));
-            }
-
-            User.BirthDate = birthDate;
-            User.Category = GetUserCategory();
-            return this;
+            Person.Phone = new Phone(number, countryCode);
+            return BuilderInstance;
         }
 
-        private UserCategoryEnum GetUserCategory()
+        public TBuilder AsNewUser()
         {
-            return typeof(T).Name switch
-            {
-                "Librarian" => UserCategoryEnum.Librarian,
-                _ => throw new NotSupportedException($"user category {typeof(T).Name} is not supported")
-            };
+            Person.RegistrationDate = DateTime.UtcNow;
+            return BuilderInstance;
         }
 
-        public UserBuilder<T> WithMiddleName(string middleName)
+        public TBuilder AsExistingUser(DateTime registrationDate)
         {
-            User.MiddleName = middleName ?? throw new ArgumentNullException(nameof(middleName));
-            return this;
+            Person.RegistrationDate = registrationDate;
+            return BuilderInstance;
         }
-
-        public UserBuilder<T> WithLocation(string city, string address)
-        {
-            User.Location = new Location(city, address);
-            return this;
-        }
-
-        public UserBuilder<T> WithPhone(string number, string countryCode)
-        {
-            User.Phone = new Phone(number, countryCode);
-            return this;
-        }
-
-        public UserBuilder<T> AsNewUser()
-        {
-            User.RegistrationDate = DateTime.UtcNow;
-            return this;
-        }
-
-        public UserBuilder<T> AsExistingUser(DateTime registrationDate)
-        {
-            User.RegistrationDate = registrationDate;
-            return this;
-        }
-
-        public T Build() => User;
     }
 }

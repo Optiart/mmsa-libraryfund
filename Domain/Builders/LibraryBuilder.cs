@@ -7,18 +7,29 @@ namespace Domain.Builders
 {
     public class LibraryBuilder
     {
-        private readonly Library _library;
+        private Library _library;
 
         public LibraryBuilder()
         {
-            _library = new Library();
         }
 
-        public LibraryBuilder WithBasicInfo(uint id, string name, string city, string address)
+        public LibraryBuilder New()
+        {
+            _library = new Library();
+            return this;
+        }
+
+        public LibraryBuilder WithBasicInfo(uint id, string name, string city, string address, string country = default)
         {
             _library.Id = id;
             _library.Name = name ?? throw new ArgumentNullException(nameof(name));
-            _library.Location = new Location(city, address);
+            
+            if (string.IsNullOrEmpty(country))
+            {
+                country = "Україна";
+            }
+
+            _library.Location = new Location(city, address, country);
             return this;
         }
 
