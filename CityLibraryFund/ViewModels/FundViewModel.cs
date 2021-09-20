@@ -1,14 +1,12 @@
 ﻿using Domain.Models.Funds;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CityLibraryFund.ViewModels
 {
     public class FundViewModel
     {
+        public uint Id { get; set; }
+
         public string Category { get; set; }
 
         public string Name { get; set; }
@@ -27,6 +25,7 @@ namespace CityLibraryFund.ViewModels
 
         public FundViewModel(Fund fund)
         {
+            Id = fund.Id;
             Name = fund.Name;
             PublishDate = fund.PublishDate.ToString("F");
             CopyCount = fund.Copies.Count.ToString();

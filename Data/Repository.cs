@@ -1,4 +1,5 @@
 ﻿using Data.Exceptions;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace Data
 
         public async Task<TEntity> Get(TKey key, CancellationToken cancellationToken)
         {
-            var entity = await DbContext.Set<TEntity>().FirstOrDefaultAsync(GetKeyPredicate(key), cancellationToken);
+            var entity = await DbContext.Set<TEntity>().AsNoTracking().AsAsyncEnumerable().FirstOrDefaultAsync(GetKeyPredicate(key), cancellationToken);
             if (entity == null)
             {
                 throw new EntityNotFoundException(typeof(TEntity).Name);
@@ -42,11 +43,12 @@ namespace Data
         }
 
         public async Task<ICollection<TEntity>> GetAll(CancellationToken cancellationToken) =>
-            await DbContext.Set<TEntity>().AsAsyncEnumerable().ToListAsync(cancellationToken);
+            await DbContext.Set<TEntity>().AsNoTracking().AsAsyncEnumerable().ToListAsync(cancellationToken);
 
         public Task Update(TEntity entity, CancellationToken cancellationToken)
         {
-            DbContext.Set<TEntity>().Update(entity);
+            DbContext.Entry(entity).State = EntityState.Detached;
+            DbContext.Update(entity);
             return DbContext.SaveChangesAsync(cancellationToken);
         }
     }

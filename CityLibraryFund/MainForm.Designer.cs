@@ -33,16 +33,12 @@ namespace CityLibraryFund
             this.lblCityAndLibrary = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlFilters = new System.Windows.Forms.Panel();
+            this.fundFilterUserControl1 = new CityLibraryFund.FundFilterUserControl();
             this.libraryFilterUserControl = new CityLibraryFund.LibraryFilterUserControl();
             this.pnlElementControls = new System.Windows.Forms.Panel();
-            this.lblTotalCount = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.controlPanelUserControl1 = new CityLibraryFund.ControlPanelUserControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lstMain = new System.Windows.Forms.ListView();
-            this.fundFilterUserControl1 = new CityLibraryFund.FundFilterUserControl();
             this.panel2.SuspendLayout();
             this.pnlFilters.SuspendLayout();
             this.pnlElementControls.SuspendLayout();
@@ -90,6 +86,17 @@ namespace CityLibraryFund
             this.pnlFilters.Size = new System.Drawing.Size(1221, 107);
             this.pnlFilters.TabIndex = 12;
             // 
+            // fundFilterUserControl1
+            // 
+            this.fundFilterUserControl1.FilterChanged = null;
+            this.fundFilterUserControl1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fundFilterUserControl1.Location = new System.Drawing.Point(0, 16);
+            this.fundFilterUserControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.fundFilterUserControl1.Name = "fundFilterUserControl1";
+            this.fundFilterUserControl1.Size = new System.Drawing.Size(1006, 67);
+            this.fundFilterUserControl1.TabIndex = 2;
+            this.fundFilterUserControl1.Visible = false;
+            // 
             // libraryFilterUserControl
             // 
             this.libraryFilterUserControl.Dock = System.Windows.Forms.DockStyle.Left;
@@ -104,11 +111,7 @@ namespace CityLibraryFund
             // 
             // pnlElementControls
             // 
-            this.pnlElementControls.Controls.Add(this.lblTotalCount);
-            this.pnlElementControls.Controls.Add(this.label2);
-            this.pnlElementControls.Controls.Add(this.btnEdit);
-            this.pnlElementControls.Controls.Add(this.btnDelete);
-            this.pnlElementControls.Controls.Add(this.btnAdd);
+            this.pnlElementControls.Controls.Add(this.controlPanelUserControl1);
             this.pnlElementControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlElementControls.Location = new System.Drawing.Point(215, 162);
             this.pnlElementControls.Margin = new System.Windows.Forms.Padding(4);
@@ -116,58 +119,15 @@ namespace CityLibraryFund
             this.pnlElementControls.Size = new System.Drawing.Size(1221, 76);
             this.pnlElementControls.TabIndex = 13;
             // 
-            // lblTotalCount
+            // controlPanelUserControl1
             // 
-            this.lblTotalCount.AutoSize = true;
-            this.lblTotalCount.Location = new System.Drawing.Point(753, 24);
-            this.lblTotalCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalCount.Name = "lblTotalCount";
-            this.lblTotalCount.Size = new System.Drawing.Size(20, 23);
-            this.lblTotalCount.TabIndex = 9;
-            this.lblTotalCount.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(577, 24);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 23);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Всього елементів";
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.Location = new System.Drawing.Point(202, 19);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(165, 33);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Редагувати";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.Location = new System.Drawing.Point(15, 19);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(165, 33);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "Видалити";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Location = new System.Drawing.Point(386, 19);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(165, 33);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Додати";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.controlPanelUserControl1.Enabled = false;
+            this.controlPanelUserControl1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.controlPanelUserControl1.Location = new System.Drawing.Point(196, 5);
+            this.controlPanelUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.controlPanelUserControl1.Name = "controlPanelUserControl1";
+            this.controlPanelUserControl1.Size = new System.Drawing.Size(811, 63);
+            this.controlPanelUserControl1.TabIndex = 1;
             // 
             // panel1
             // 
@@ -194,17 +154,6 @@ namespace CityLibraryFund
             this.lstMain.UseCompatibleStateImageBehavior = false;
             this.lstMain.View = System.Windows.Forms.View.Details;
             // 
-            // fundFilterUserControl1
-            // 
-            this.fundFilterUserControl1.FilterChanged = null;
-            this.fundFilterUserControl1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.fundFilterUserControl1.Location = new System.Drawing.Point(0, 16);
-            this.fundFilterUserControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.fundFilterUserControl1.Name = "fundFilterUserControl1";
-            this.fundFilterUserControl1.Size = new System.Drawing.Size(1006, 67);
-            this.fundFilterUserControl1.TabIndex = 2;
-            this.fundFilterUserControl1.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -223,7 +172,6 @@ namespace CityLibraryFund
             this.panel2.ResumeLayout(false);
             this.pnlFilters.ResumeLayout(false);
             this.pnlElementControls.ResumeLayout(false);
-            this.pnlElementControls.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -237,14 +185,10 @@ namespace CityLibraryFund
         private System.Windows.Forms.Panel pnlFilters;
         private LibraryFilterUserControl libraryFilterUserControl;
         private System.Windows.Forms.Panel pnlElementControls;
-        private System.Windows.Forms.Label lblTotalCount;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView lstMain;
         private FundFilterUserControl fundFilterUserControl1;
+        private ControlPanelUserControl controlPanelUserControl1;
     }
 }
 

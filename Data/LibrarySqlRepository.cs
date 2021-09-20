@@ -25,6 +25,7 @@ namespace Data
                 .Include(l => l.ReadingRooms)
                     .ThenInclude(r => r.Librarians)
                     .ThenInclude(l => l.User)
+                .AsNoTracking()
                 .ToListAsync(cancellationToken);
         }
 
@@ -40,6 +41,7 @@ namespace Data
                 .Include(l => l.ReadingRooms)
                     .ThenInclude(r => r.Librarians)
                     .ThenInclude(l => l.User)
+                    .AsNoTracking()
                     .AsAsyncEnumerable();
 
             IAsyncEnumerable<Library> filtered = default;
@@ -54,6 +56,7 @@ namespace Data
         public async Task<ICollection<Library>> GetByFilter(Func<Library, bool> predicate, CancellationToken cancellationToken)
         {
             return await DbContext.Libraries
+                .AsNoTracking()
                 .AsAsyncEnumerable()
                 .Where(predicate)
                 .ToListAsync(cancellationToken);

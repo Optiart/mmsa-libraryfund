@@ -50,10 +50,10 @@ namespace CityLibraryFund.Filters
 
             foreach (var viewModel in viewModels)
             {
-                ListView.AddRow(viewModel.Category, viewModel.Name, viewModel.Authors, viewModel.UniqueNumber, viewModel.PublishDate, viewModel.CopyCount);
+                ListView.AddRow(viewModel.Id.ToString(), viewModel.Category, viewModel.Name, viewModel.Authors, viewModel.UniqueNumber, viewModel.PublishDate, viewModel.CopyCount);
             }
 
-            ListView.AddColumns("Категорія", "Назва", "Автори", "Унікальний номер", "Дата публікації", "Кількість примірників");
+            ListView.AddColumns("Id", "Категорія", "Назва", "Автори", "Унікальний номер", "Дата публікації", "Кількість примірників");
         }
 
         protected override void UpdateState(FundFilterState changedState) => FilterState.FundState = changedState;

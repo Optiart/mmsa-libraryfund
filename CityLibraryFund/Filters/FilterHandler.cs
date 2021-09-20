@@ -34,5 +34,13 @@ namespace CityLibraryFund.Filters
                 await LoadData();
             }
         }
+
+        public async void HandleEntityUpdate(object _, EntityUpdatedEventArgs eventArgs)
+        {
+            if (eventArgs.FilterName == Name)
+            {
+                await LoadData();
+            }
+        }
     }
 }

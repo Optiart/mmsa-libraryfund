@@ -3,6 +3,7 @@ using CityLibraryFund.Events;
 using CityLibraryFund.Filters;
 using CityLibraryFund.MenuHandlers;
 using Domain;
+using Domain.Builders;
 using System.Windows.Forms;
 
 namespace CityLibraryFund
@@ -12,6 +13,8 @@ namespace CityLibraryFund
     public partial class MainForm : Form
     {
         public MainForm(
+            LibraryManager libraryManager,
+            LibraryBuilder libraryBuilder,
             MenuFilterLoader menuFilterLoader,
             LibraryFilterHandler libraryFilterHandler,
             FundFilterHandler fundFilterHandler)
@@ -27,7 +30,11 @@ namespace CityLibraryFund
 
             fundFilterUserControl1.FilterChanged += fundFilterHandler.HandleFilterChanged;
 
+            controlPanelUserControl1.AddDependencies(libraryManager, libraryBuilder, lstMain);
             menuUserControl1.MenuSelectionChanged += menuSelectionHandler.HandleMenuSelectionChanged;
+            menuUserControl1.MenuSelectionChanged += controlPanelUserControl1.HandleMenuSelectionChanged;
+
+            controlPanelUserControl1.EntityUpdated += libraryFilterHandler.HandleEntityUpdate;
             SetCityAndLibraryText(All, All);
         }
 

@@ -26,6 +26,37 @@ namespace Domain
             _librarianUserBuilder = librarianUserBuilder;
         }
 
+        public async Task Add(Library library, CancellationToken cancellationToken)
+        {
+            await _libraryRepository.Add(new Data.Dto.Library
+            {
+                Id = library.Id,
+                City = library.Location.City,
+                Address = library.Location.Address,
+                Name = library.Name
+            }, cancellationToken);
+        }
+
+        public async Task Update(Library library, CancellationToken cancellationToken)
+        {
+            await _libraryRepository.Update(new Data.Dto.Library
+            {
+                Id = library.Id,
+                City = library.Location.City,
+                Address = library.Location.Address,
+                Name = library.Name
+            }, cancellationToken);
+        }
+
+        public async Task<Library> Get(uint libraryId, CancellationToken cancellationToken)
+        {
+            var libraryDto = await _libraryRepository.Get(libraryId, cancellationToken);
+            return _libraryBuilder
+                .New()
+                .WithBasicInfo(libraryDto.Id, libraryDto.Name, libraryDto.City, libraryDto.Address)
+                .Build();
+        }
+
         public async Task<ICollection<Domain.Models.Library>> GetByFilter(ICollection<Filter> filters, CancellationToken cancellationToken)
         {
             var predicates = new List<Func<Data.Dto.Library, bool>>();

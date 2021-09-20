@@ -32,10 +32,10 @@ namespace CityLibraryFund.Filters
 
             foreach (var library in libraries)
             {
-                ListView.AddRow(library.Location.City, library.Name, library.Location.Address);
+                ListView.AddRow(library.Id.ToString(), library.Location.City, library.Name, library.Location.Address);
             }
 
-            ListView.AddColumns("Місто", "Назва", "Адреса");
+            ListView.AddColumns("Id","Місто", "Назва", "Адреса");
         }
 
         protected override void UpdateState(LibraryFilterState changedState) => FilterState.LibraryFilterState = changedState;
