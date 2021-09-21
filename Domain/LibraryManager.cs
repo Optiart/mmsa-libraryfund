@@ -57,6 +57,11 @@ namespace Domain
                 .Build();
         }
 
+        public async Task Delete(uint libraryId, CancellationToken cancellationToken)
+        {
+            await _libraryRepository.Delete(libraryId, cancellationToken);
+        }
+
         public async Task<ICollection<Domain.Models.Library>> GetByFilter(ICollection<Filter> filters, CancellationToken cancellationToken)
         {
             var predicates = new List<Func<Data.Dto.Library, bool>>();

@@ -4,31 +4,31 @@ using System;
 
 namespace CityLibraryFund.Events
 {
-    using static FilterControlConstants;
+    using static MenuConstants;
 
     public class FilterStateChangedEventArgs<T> : EventArgs
     {
-        public string FilterName { get; set; }
+        public string MenuName { get; set; }
 
         public T State { get; set; }
 
-        public FilterStateChangedEventArgs(string filterName, T state)
+        public FilterStateChangedEventArgs(string menuName, T state)
         {
-            FilterName = filterName;
+            MenuName = menuName;
             State = state;
         }
     }
 
     public class LibraryStateChangedEventArgs : FilterStateChangedEventArgs<LibraryFilterState>
     {
-        public LibraryStateChangedEventArgs(LibraryFilterState state) : base(LibraryFilter, state)
+        public LibraryStateChangedEventArgs(LibraryFilterState state) : base(LibraryMenu, state)
         {
         }
     }
 
     public class FundStateChangedEventArgs : FilterStateChangedEventArgs<FundFilterState>
     {
-        public FundStateChangedEventArgs(FundFilterState state) : base(FundFilter, state)
+        public FundStateChangedEventArgs(FundFilterState state) : base(FundMenu, state)
         {
         }
     }

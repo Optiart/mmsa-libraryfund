@@ -6,7 +6,7 @@ namespace CityLibraryFund.Filters
 {
     public abstract class FilterHandler<T>
     {
-        public abstract string Name { get; }
+        public abstract string MenuName { get; }
 
         protected FilterState FilterState { get; }
 
@@ -29,15 +29,15 @@ namespace CityLibraryFund.Filters
         public async void HandleFilterChanged(object _, FilterStateChangedEventArgs<T> eventArgs)
         {
             UpdateState(eventArgs.State);
-            if (eventArgs.FilterName == Name)
+            if (eventArgs.MenuName == MenuName)
             {
                 await LoadData();
             }
         }
 
-        public async void HandleEntityUpdate(object _, EntityUpdatedEventArgs eventArgs)
+        public async void HandleEntityUpdate(object _, EntityEventArgs eventArgs)
         {
-            if (eventArgs.FilterName == Name)
+            if (eventArgs.MenuName == MenuName)
             {
                 await LoadData();
             }

@@ -8,5 +8,7 @@ namespace CityLibraryFund.ControlForms
         DialogResult ShowDialog();
 
         Task LoadEntity(uint id);
+
+        Task<bool> DeleteEntiy(uint id);
     }
 }

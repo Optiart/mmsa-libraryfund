@@ -16,5 +16,14 @@ namespace CityLibraryFund.Helpers
 
         public static Func<string, DialogResult> GeneralErrorMessageBox = (string message) =>
             MessageBox.Show($"Вибачте, сталася помилка: {message}. Спробуйте ще раз", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        public static Func<string, DialogResult> DeleteConfirmationMessageBox = (string message) =>
+            MessageBox.Show($"Видалити {message}?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        public static Func<DialogResult> EntityAlreadyDeletedMessageBox = () =>
+            MessageBox.Show($"Обраний об'єкт вже видалено. Оновіть, будь ласка, список", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        public static Func<DialogResult> EntityNotFoundMessageBox = () =>
+            MessageBox.Show($"Обраний об'єкт не знайдено. Оновіть, будь ласка, список", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Warning);
     }
 }

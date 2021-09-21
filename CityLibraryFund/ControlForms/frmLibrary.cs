@@ -29,14 +29,9 @@ namespace CityLibraryFund.ControlForms
             _isCreation = true;
         }
 
-        public async Task LoadEntity(uint key)
+        public async Task LoadEntity(uint id)
         {
-            var library = await _libraryManager.Get(key, default);
-
-            if (library == null)
-            {
-                return;
-            }
+            var library = await _libraryManager.Get(id, default);
 
             var libraryViewModel = new Library
             {
@@ -48,6 +43,19 @@ namespace CityLibraryFund.ControlForms
 
             SetComponents(libraryViewModel);
             _isCreation = false;
+        }
+
+        public async Task<bool> DeleteEntiy(uint id)
+        {
+            var library = await _libraryManager.Get(id, default);
+
+            if (DeleteConfirmationMessageBox(library.Name) != DialogResult.Yes)
+            {
+                return false;
+            }
+
+            await _libraryManager.Delete(id, default);
+            return true;
         }
 
         private void SetComponents(Library library)

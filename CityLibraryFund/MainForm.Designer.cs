@@ -122,11 +122,12 @@ namespace CityLibraryFund
             // controlPanelUserControl1
             // 
             this.controlPanelUserControl1.Enabled = false;
+            this.controlPanelUserControl1.EntityUpdated = null;
             this.controlPanelUserControl1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.controlPanelUserControl1.Location = new System.Drawing.Point(196, 5);
+            this.controlPanelUserControl1.Location = new System.Drawing.Point(75, 9);
             this.controlPanelUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.controlPanelUserControl1.Name = "controlPanelUserControl1";
-            this.controlPanelUserControl1.Size = new System.Drawing.Size(811, 63);
+            this.controlPanelUserControl1.Size = new System.Drawing.Size(1065, 63);
             this.controlPanelUserControl1.TabIndex = 1;
             // 
             // panel1

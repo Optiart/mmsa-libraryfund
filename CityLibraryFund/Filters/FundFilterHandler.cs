@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace CityLibraryFund.Filters
 {
-    using static FilterControlConstants;
+    using static MenuConstants;
 
     public class FundFilterHandler : FilterHandler<FundFilterState>
     {
-        public override string Name => FundFilter;
+        public override string MenuName => FundMenu;
         private readonly FundManager _fundManager;
 
         public FundFilterHandler(FilterState filterState, FundManager libraryManager) : base(filterState)

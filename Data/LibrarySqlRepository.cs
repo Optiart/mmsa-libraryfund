@@ -10,17 +10,14 @@ namespace Data
 {
     public class LibrarySqlRepository : Repository<Library, uint>, ILibraryRepository
     {
-        public LibrarySqlRepository(LibraryFundDbContext context) : base(context)
-        {
-        }
-
         protected override Library GetEntityWithKeyOnly(uint key) => new() { Id = key };
 
         protected override Func<Library, bool> GetKeyPredicate(uint key) => library => library.Id == key;
 
         public async Task<ICollection<Library>> GetWithRoomsAndLibrarians(CancellationToken cancellationToken)
         {
-            return await DbContext.Libraries
+            using var dbContext = new LibraryFundDbContext();
+            return await dbContext.Libraries
                 .Include(l => l.StorageRooms)
                 .Include(l => l.ReadingRooms)
                     .ThenInclude(r => r.Librarians)
@@ -36,7 +33,8 @@ namespace Data
                 throw new InvalidOperationException("predicates must be specified");
             }
 
-            var task = DbContext.Libraries
+            using var dbContext = new LibraryFundDbContext();
+            var task = dbContext.Libraries
                 .Include(l => l.StorageRooms)
                 .Include(l => l.ReadingRooms)
                     .ThenInclude(r => r.Librarians)
@@ -55,7 +53,8 @@ namespace Data
 
         public async Task<ICollection<Library>> GetByFilter(Func<Library, bool> predicate, CancellationToken cancellationToken)
         {
-            return await DbContext.Libraries
+            using var dbContext = new LibraryFundDbContext();
+            return await dbContext.Libraries
                 .AsNoTracking()
                 .AsAsyncEnumerable()
                 .Where(predicate)

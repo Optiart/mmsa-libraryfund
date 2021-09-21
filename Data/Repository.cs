@@ -10,31 +10,28 @@ namespace Data
 {
     public abstract class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity: class
     {
-        protected readonly LibraryFundDbContext DbContext;
         protected abstract Func<TEntity, bool> GetKeyPredicate(TKey key );
         protected abstract TEntity GetEntityWithKeyOnly(TKey key);
 
-        public Repository(LibraryFundDbContext context)
-        {
-            DbContext = context;
-        }
-
         public async Task Add(TEntity entity, CancellationToken cancellationToken)
         {
-            await DbContext.AddAsync(entity);
-            await DbContext.SaveChangesAsync(cancellationToken);
+            using var dbContext = new LibraryFundDbContext();
+            dbContext.Add(entity);
+            await dbContext.SaveChangesAsync(cancellationToken);
         }
 
-        public Task Delete(TKey key, CancellationToken cancellationToken)
+        public async Task Delete(TKey key, CancellationToken cancellationToken)
         {
+            using var dbContext = new LibraryFundDbContext();
             var entity = GetEntityWithKeyOnly(key);
-            DbContext.Remove(entity);
-            return DbContext.SaveChangesAsync(cancellationToken);
+            dbContext.Remove(entity);
+            await dbContext.SaveChangesAsync(cancellationToken);
         }
 
         public async Task<TEntity> Get(TKey key, CancellationToken cancellationToken)
         {
-            var entity = await DbContext.Set<TEntity>().AsNoTracking().AsAsyncEnumerable().FirstOrDefaultAsync(GetKeyPredicate(key), cancellationToken);
+            using var dbContext = new LibraryFundDbContext();
+            var entity = await dbContext.Set<TEntity>().AsNoTracking().AsAsyncEnumerable().FirstOrDefaultAsync(GetKeyPredicate(key), cancellationToken);
             if (entity == null)
             {
                 throw new EntityNotFoundException(typeof(TEntity).Name);
@@ -42,14 +39,18 @@ namespace Data
             return entity;
         }
 
-        public async Task<ICollection<TEntity>> GetAll(CancellationToken cancellationToken) =>
-            await DbContext.Set<TEntity>().AsNoTracking().AsAsyncEnumerable().ToListAsync(cancellationToken);
-
-        public Task Update(TEntity entity, CancellationToken cancellationToken)
+        public async Task<ICollection<TEntity>> GetAll(CancellationToken cancellationToken)
         {
-            DbContext.Entry(entity).State = EntityState.Detached;
-            DbContext.Update(entity);
-            return DbContext.SaveChangesAsync(cancellationToken);
+            using var dbContext = new LibraryFundDbContext();
+            return await dbContext.Set<TEntity>().AsNoTracking().AsAsyncEnumerable().ToListAsync(cancellationToken);
+        }
+            
+
+        public async Task Update(TEntity entity, CancellationToken cancellationToken)
+        {
+            using var dbContext = new LibraryFundDbContext();
+            dbContext.Set<TEntity>().Update(entity);
+            await dbContext.SaveChangesAsync(cancellationToken);
         }
     }
 }

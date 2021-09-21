@@ -1,19 +1,17 @@
 ﻿using CityLibraryFund.Common;
 using CityLibraryFund.Helpers;
 using Domain;
-using Domain.Models;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CityLibraryFund.Filters
 {
-    using static FilterControlConstants;
+    using static MenuConstants;
 
     public class LibraryFilterHandler : FilterHandler<LibraryFilterState>
     {
-        public override string Name => LibraryFilter;
+        public override string MenuName => LibraryMenu;
         private readonly LibraryManager _libraryManager;
 
         public LibraryFilterHandler(FilterState filterState, LibraryManager libraryManager) : base(filterState)
