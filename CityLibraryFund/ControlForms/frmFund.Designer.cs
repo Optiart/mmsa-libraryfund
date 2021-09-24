@@ -34,27 +34,25 @@ namespace CityLibraryFund.ControlForms
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtCity = new System.Windows.Forms.TextBox();
+            this.lblUniqueNumber = new System.Windows.Forms.Label();
+            this.txtUniqueNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtPublished = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lstAuthors = new System.Windows.Forms.ListBox();
+            this.btnAddAuthor = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbAuthors = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnAddLibrary = new System.Windows.Forms.Button();
+            this.lstStorage = new System.Windows.Forms.ListBox();
+            this.btnDeleteLibrary = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtIssueNumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -101,21 +99,21 @@ namespace CityLibraryFund.ControlForms
             this.label3.TabIndex = 6;
             this.label3.Text = "Категорія";
             // 
-            // comboBox1
+            // cmbCategory
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(171, 175);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(236, 31);
-            this.comboBox1.TabIndex = 7;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(171, 175);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(236, 31);
+            this.cmbCategory.TabIndex = 7;
             // 
-            // comboBox2
+            // cmbType
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(171, 230);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(236, 31);
-            this.comboBox2.TabIndex = 8;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Location = new System.Drawing.Point(171, 230);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(236, 31);
+            this.cmbType.TabIndex = 8;
             // 
             // label4
             // 
@@ -126,39 +124,39 @@ namespace CityLibraryFund.ControlForms
             this.label4.TabIndex = 9;
             this.label4.Text = "Тип";
             // 
-            // label5
+            // lblUniqueNumber
             // 
-            this.label5.Location = new System.Drawing.Point(11, 283);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 30);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Унікальний номер";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblUniqueNumber.Location = new System.Drawing.Point(11, 283);
+            this.lblUniqueNumber.Name = "lblUniqueNumber";
+            this.lblUniqueNumber.Size = new System.Drawing.Size(154, 30);
+            this.lblUniqueNumber.TabIndex = 10;
+            this.lblUniqueNumber.Text = "Унікальний номер";
+            this.lblUniqueNumber.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // txtCity
+            // txtUniqueNumber
             // 
-            this.txtCity.Location = new System.Drawing.Point(171, 283);
-            this.txtCity.MaxLength = 32;
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(236, 30);
-            this.txtCity.TabIndex = 11;
+            this.txtUniqueNumber.Location = new System.Drawing.Point(171, 283);
+            this.txtUniqueNumber.MaxLength = 32;
+            this.txtUniqueNumber.Name = "txtUniqueNumber";
+            this.txtUniqueNumber.Size = new System.Drawing.Size(236, 30);
+            this.txtUniqueNumber.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 340);
+            this.label6.Location = new System.Drawing.Point(33, 385);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 23);
             this.label6.TabIndex = 12;
             this.label6.Text = "Дата публікації";
             // 
-            // dateTimePicker1
+            // dtPublished
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(171, 334);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(236, 30);
-            this.dateTimePicker1.TabIndex = 13;
+            this.dtPublished.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPublished.Location = new System.Drawing.Point(171, 379);
+            this.dtPublished.Name = "dtPublished";
+            this.dtPublished.Size = new System.Drawing.Size(236, 30);
+            this.dtPublished.TabIndex = 13;
             // 
             // label7
             // 
@@ -169,23 +167,23 @@ namespace CityLibraryFund.ControlForms
             this.label7.TabIndex = 14;
             this.label7.Text = "Автори";
             // 
-            // listBox1
+            // lstAuthors
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 23;
-            this.listBox1.Location = new System.Drawing.Point(573, 78);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(299, 96);
-            this.listBox1.TabIndex = 15;
+            this.lstAuthors.FormattingEnabled = true;
+            this.lstAuthors.ItemHeight = 23;
+            this.lstAuthors.Location = new System.Drawing.Point(573, 78);
+            this.lstAuthors.Name = "lstAuthors";
+            this.lstAuthors.Size = new System.Drawing.Size(299, 96);
+            this.lstAuthors.TabIndex = 15;
             // 
-            // button1
+            // btnAddAuthor
             // 
-            this.button1.Location = new System.Drawing.Point(878, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 37);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Додати";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddAuthor.Location = new System.Drawing.Point(878, 18);
+            this.btnAddAuthor.Name = "btnAddAuthor";
+            this.btnAddAuthor.Size = new System.Drawing.Size(101, 37);
+            this.btnAddAuthor.TabIndex = 16;
+            this.btnAddAuthor.Text = "Додати";
+            this.btnAddAuthor.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -196,119 +194,100 @@ namespace CityLibraryFund.ControlForms
             this.button2.Text = "Видалити";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox3
+            // cmbAuthors
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(573, 19);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(299, 31);
-            this.comboBox3.TabIndex = 18;
+            this.cmbAuthors.FormattingEnabled = true;
+            this.cmbAuthors.Location = new System.Drawing.Point(573, 19);
+            this.cmbAuthors.Name = "cmbAuthors";
+            this.cmbAuthors.Size = new System.Drawing.Size(299, 31);
+            this.cmbAuthors.TabIndex = 18;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(478, 241);
+            this.label8.Location = new System.Drawing.Point(501, 210);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 23);
+            this.label8.Size = new System.Drawing.Size(113, 23);
             this.label8.TabIndex = 19;
-            this.label8.Text = "Бібліотека";
+            this.label8.Text = "Розташування";
             // 
-            // comboBox4
+            // btnAddLibrary
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(573, 238);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(299, 31);
-            this.comboBox4.TabIndex = 20;
+            this.btnAddLibrary.Location = new System.Drawing.Point(878, 247);
+            this.btnAddLibrary.Name = "btnAddLibrary";
+            this.btnAddLibrary.Size = new System.Drawing.Size(101, 37);
+            this.btnAddLibrary.TabIndex = 24;
+            this.btnAddLibrary.Text = "Додати";
+            this.btnAddLibrary.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // lstStorage
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(516, 282);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 23);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "К-сть";
+            this.lstStorage.FormattingEnabled = true;
+            this.lstStorage.ItemHeight = 23;
+            this.lstStorage.Location = new System.Drawing.Point(501, 247);
+            this.lstStorage.Name = "lstStorage";
+            this.lstStorage.Size = new System.Drawing.Size(371, 165);
+            this.lstStorage.TabIndex = 25;
             // 
-            // textBox1
+            // btnDeleteLibrary
             // 
-            this.textBox1.Location = new System.Drawing.Point(573, 279);
-            this.textBox1.MaxLength = 32;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(104, 30);
-            this.textBox1.TabIndex = 22;
+            this.btnDeleteLibrary.Location = new System.Drawing.Point(878, 305);
+            this.btnDeleteLibrary.Name = "btnDeleteLibrary";
+            this.btnDeleteLibrary.Size = new System.Drawing.Size(101, 37);
+            this.btnDeleteLibrary.TabIndex = 26;
+            this.btnDeleteLibrary.Text = "Видалити";
+            this.btnDeleteLibrary.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // btnSave
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(683, 283);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(30, 23);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "шт";
+            this.btnSave.Location = new System.Drawing.Point(452, 477);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(101, 37);
+            this.btnSave.TabIndex = 27;
+            this.btnSave.Text = "Зберегти";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // label5
             // 
-            this.button3.Location = new System.Drawing.Point(878, 238);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 37);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "Додати";
-            this.button3.UseVisualStyleBackColor = true;
+            this.label5.Location = new System.Drawing.Point(12, 331);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 30);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Випуск";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // listBox2
+            // txtIssueNumber
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 23;
-            this.listBox2.Location = new System.Drawing.Point(573, 334);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(299, 96);
-            this.listBox2.TabIndex = 25;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(878, 334);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(101, 37);
-            this.button4.TabIndex = 26;
-            this.button4.Text = "Видалити";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(452, 477);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(101, 37);
-            this.button5.TabIndex = 27;
-            this.button5.Text = "Зберегти";
-            this.button5.UseVisualStyleBackColor = true;
+            this.txtIssueNumber.Location = new System.Drawing.Point(171, 331);
+            this.txtIssueNumber.MaxLength = 32;
+            this.txtIssueNumber.Name = "txtIssueNumber";
+            this.txtIssueNumber.Size = new System.Drawing.Size(104, 30);
+            this.txtIssueNumber.TabIndex = 29;
             // 
             // frmFund
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 526);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtCity);
+            this.Controls.Add(this.txtIssueNumber);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnDeleteLibrary);
+            this.Controls.Add(this.lstStorage);
+            this.Controls.Add(this.btnAddLibrary);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cmbAuthors);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnAddAuthor);
+            this.Controls.Add(this.lstAuthors);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dtPublished);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtUniqueNumber);
+            this.Controls.Add(this.lblUniqueNumber);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbType);
+            this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
@@ -319,6 +298,7 @@ namespace CityLibraryFund.ControlForms
             this.Name = "frmFund";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Фонд";
+            this.Load += new System.EventHandler(this.frmFund_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,26 +311,24 @@ namespace CityLibraryFund.ControlForms
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCity;
+        private System.Windows.Forms.Label lblUniqueNumber;
+        private System.Windows.Forms.TextBox txtUniqueNumber;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtPublished;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox lstAuthors;
+        private System.Windows.Forms.Button btnAddAuthor;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbAuthors;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnAddLibrary;
+        private System.Windows.Forms.ListBox lstStorage;
+        private System.Windows.Forms.Button btnDeleteLibrary;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtIssueNumber;
     }
 }

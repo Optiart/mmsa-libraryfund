@@ -34,12 +34,14 @@ namespace CityLibraryFund
             this.btnFunds = new System.Windows.Forms.Button();
             this.btnLibraries = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnFundUsage = new System.Windows.Forms.Button();
+            this.btnLibrarians = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVisits
             // 
             this.btnVisits.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVisits.Location = new System.Drawing.Point(4, 410);
+            this.btnVisits.Location = new System.Drawing.Point(5, 561);
             this.btnVisits.Margin = new System.Windows.Forms.Padding(5);
             this.btnVisits.Name = "btnVisits";
             this.btnVisits.Size = new System.Drawing.Size(198, 49);
@@ -50,7 +52,7 @@ namespace CityLibraryFund
             // btnUsers
             // 
             this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUsers.Location = new System.Drawing.Point(4, 309);
+            this.btnUsers.Location = new System.Drawing.Point(4, 467);
             this.btnUsers.Margin = new System.Windows.Forms.Padding(5);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(198, 49);
@@ -61,7 +63,7 @@ namespace CityLibraryFund
             // btnFunds
             // 
             this.btnFunds.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFunds.Location = new System.Drawing.Point(5, 100);
+            this.btnFunds.Location = new System.Drawing.Point(5, 189);
             this.btnFunds.Margin = new System.Windows.Forms.Padding(5);
             this.btnFunds.Name = "btnFunds";
             this.btnFunds.Size = new System.Drawing.Size(198, 49);
@@ -85,7 +87,7 @@ namespace CityLibraryFund
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(5, 204);
+            this.button1.Location = new System.Drawing.Point(5, 372);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(198, 49);
@@ -93,10 +95,34 @@ namespace CityLibraryFund
             this.button1.Text = "Автори";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // btnFundUsage
+            // 
+            this.btnFundUsage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFundUsage.Location = new System.Drawing.Point(5, 278);
+            this.btnFundUsage.Margin = new System.Windows.Forms.Padding(5);
+            this.btnFundUsage.Name = "btnFundUsage";
+            this.btnFundUsage.Size = new System.Drawing.Size(198, 49);
+            this.btnFundUsage.TabIndex = 16;
+            this.btnFundUsage.Text = "Видача";
+            this.btnFundUsage.UseVisualStyleBackColor = true;
+            // 
+            // btnLibrarians
+            // 
+            this.btnLibrarians.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLibrarians.Location = new System.Drawing.Point(5, 97);
+            this.btnLibrarians.Margin = new System.Windows.Forms.Padding(5);
+            this.btnLibrarians.Name = "btnLibrarians";
+            this.btnLibrarians.Size = new System.Drawing.Size(198, 49);
+            this.btnLibrarians.TabIndex = 17;
+            this.btnLibrarians.Text = "Бібліотекарі";
+            this.btnLibrarians.UseVisualStyleBackColor = true;
+            // 
             // MenuUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnLibrarians);
+            this.Controls.Add(this.btnFundUsage);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVisits);
             this.Controls.Add(this.btnUsers);
@@ -105,7 +131,7 @@ namespace CityLibraryFund
             this.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "MenuUserControl";
-            this.Size = new System.Drawing.Size(207, 486);
+            this.Size = new System.Drawing.Size(207, 627);
             this.ResumeLayout(false);
 
         }
@@ -117,5 +143,7 @@ namespace CityLibraryFund
         private System.Windows.Forms.Button btnFunds;
         private System.Windows.Forms.Button btnLibraries;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFundUsage;
+        private System.Windows.Forms.Button btnLibrarians;
     }
 }

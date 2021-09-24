@@ -38,6 +38,14 @@ namespace CityLibraryFund.ControlForms
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.lstReadingRooms = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnDeleteReadingRoom = new System.Windows.Forms.Button();
+            this.btnAddReadingRoom = new System.Windows.Forms.Button();
+            this.btnRemoveStorageRoom = new System.Windows.Forms.Button();
+            this.btnAddStorageRoom = new System.Windows.Forms.Button();
+            this.lstStorageRooms = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txtId
@@ -113,7 +121,7 @@ namespace CityLibraryFund.ControlForms
             // btnSave
             // 
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Location = new System.Drawing.Point(141, 333);
+            this.btnSave.Location = new System.Drawing.Point(386, 349);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(133, 44);
             this.btnSave.TabIndex = 8;
@@ -121,11 +129,91 @@ namespace CityLibraryFund.ControlForms
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // lstReadingRooms
+            // 
+            this.lstReadingRooms.FormattingEnabled = true;
+            this.lstReadingRooms.ItemHeight = 23;
+            this.lstReadingRooms.Location = new System.Drawing.Point(454, 59);
+            this.lstReadingRooms.Name = "lstReadingRooms";
+            this.lstReadingRooms.Size = new System.Drawing.Size(326, 96);
+            this.lstReadingRooms.TabIndex = 26;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(454, 180);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(142, 23);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Кімнати сховища";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(454, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(118, 23);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Читальні зали";
+            // 
+            // btnDeleteReadingRoom
+            // 
+            this.btnDeleteReadingRoom.Location = new System.Drawing.Point(786, 118);
+            this.btnDeleteReadingRoom.Name = "btnDeleteReadingRoom";
+            this.btnDeleteReadingRoom.Size = new System.Drawing.Size(101, 37);
+            this.btnDeleteReadingRoom.TabIndex = 31;
+            this.btnDeleteReadingRoom.Text = "Видалити";
+            this.btnDeleteReadingRoom.UseVisualStyleBackColor = true;
+            // 
+            // btnAddReadingRoom
+            // 
+            this.btnAddReadingRoom.Location = new System.Drawing.Point(786, 59);
+            this.btnAddReadingRoom.Name = "btnAddReadingRoom";
+            this.btnAddReadingRoom.Size = new System.Drawing.Size(101, 37);
+            this.btnAddReadingRoom.TabIndex = 30;
+            this.btnAddReadingRoom.Text = "Додати";
+            this.btnAddReadingRoom.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveStorageRoom
+            // 
+            this.btnRemoveStorageRoom.Location = new System.Drawing.Point(786, 268);
+            this.btnRemoveStorageRoom.Name = "btnRemoveStorageRoom";
+            this.btnRemoveStorageRoom.Size = new System.Drawing.Size(101, 37);
+            this.btnRemoveStorageRoom.TabIndex = 34;
+            this.btnRemoveStorageRoom.Text = "Видалити";
+            this.btnRemoveStorageRoom.UseVisualStyleBackColor = true;
+            // 
+            // btnAddStorageRoom
+            // 
+            this.btnAddStorageRoom.Location = new System.Drawing.Point(786, 209);
+            this.btnAddStorageRoom.Name = "btnAddStorageRoom";
+            this.btnAddStorageRoom.Size = new System.Drawing.Size(101, 37);
+            this.btnAddStorageRoom.TabIndex = 33;
+            this.btnAddStorageRoom.Text = "Додати";
+            this.btnAddStorageRoom.UseVisualStyleBackColor = true;
+            // 
+            // lstStorageRooms
+            // 
+            this.lstStorageRooms.FormattingEnabled = true;
+            this.lstStorageRooms.ItemHeight = 23;
+            this.lstStorageRooms.Location = new System.Drawing.Point(454, 209);
+            this.lstStorageRooms.Name = "lstStorageRooms";
+            this.lstStorageRooms.Size = new System.Drawing.Size(326, 96);
+            this.lstStorageRooms.TabIndex = 32;
+            // 
             // frmLibrary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 405);
+            this.ClientSize = new System.Drawing.Size(919, 405);
+            this.Controls.Add(this.btnRemoveStorageRoom);
+            this.Controls.Add(this.btnAddStorageRoom);
+            this.Controls.Add(this.lstStorageRooms);
+            this.Controls.Add(this.btnDeleteReadingRoom);
+            this.Controls.Add(this.btnAddReadingRoom);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lstReadingRooms);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtCity);
@@ -156,5 +244,13 @@ namespace CityLibraryFund.ControlForms
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ListBox lstReadingRooms;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnDeleteReadingRoom;
+        private System.Windows.Forms.Button btnAddReadingRoom;
+        private System.Windows.Forms.Button btnRemoveStorageRoom;
+        private System.Windows.Forms.Button btnAddStorageRoom;
+        private System.Windows.Forms.ListBox lstStorageRooms;
     }
 }

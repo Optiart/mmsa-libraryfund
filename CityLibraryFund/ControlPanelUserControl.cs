@@ -49,6 +49,8 @@ namespace CityLibraryFund
             {
                 LibraryMenu => new frmLibrary(_libraryManager, _libraryBuilder),
 
+                //FundMenu => new frmFund(),
+
                 _ => throw new NotSupportedException($"menu {_currentMenu} is not supported")
             };
         }
